@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Colorful Rain | Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        function rain(){
+            let amount = 10;
+            let body = document.querySelector('body');
+            let i = 0;
+            while(i < amount){
+                let drop = document.createElement('i');
+
+                let size =  Math.random() * 5;
+                
+                drop.style.with = 0.2 + size+'px'; 
+                
+                body.appendChild(drop);
+                i++
+            }
+        }
+
+        rain();
+    </script>
+</body>
+</html>
