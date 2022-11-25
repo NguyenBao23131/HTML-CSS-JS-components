@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;1,300&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+ul
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+ul li
+{
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+ul:hover li
+{
+    color: transparent;
+}
+
+ul li:hover
+{
+    background: #ccc;
+    color: #333;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+ul li::before
+{
+    content: '';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    background: #f00;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 18vw;
+    letter-spacing: 50px;
+    /* line-height: 20px; */
+}
+
+ul li:hover::before
+{
+    content: attr(data-text);
+    opacity: 1;
+    letter-spacing: 10px;
+}
+
+ul li:nth-child(1):before
+{
+    background: linear-gradient(#005bbc 0% , #005bbc 50%, #ffd600 50%, #ffd600 100%);
+}
+
+ul li:nth-child(2):before
+{
+    background: linear-gradient(#fff 0%, #fff 33%,#0039a6 33%, #0039a6 66%, #d52b1e 66%, #d52b1e 100%);
+}

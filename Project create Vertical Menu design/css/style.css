@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+}
+
+.navigation
+{
+    position: relative;
+    width: 70px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.1);
+}
+
+.navigation ul{
+    position: absolute;
+    top : 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    list-style-type: none;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.navigation ul li a .icon i{
+   font-size: 25px;
+}
+
+.navigation ul li a .title{
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 600;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0px 15px 25px rgba(0,0,0.2,0.1);
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navigation ul li:hover a .title{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.navigation ul .indicator{
+    position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    -webkit-tap-highlight-color: transparent;
+    transition: 0.5s;
+}
+
+
+
+

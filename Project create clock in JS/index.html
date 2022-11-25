@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="time">
+        <div class="circle" style="--clr: #ff2972;">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00</div>
+        </div>
+        <div class="circle" style="--clr: #fee810;">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00</div>
+        </div>
+        <div class="circle" style="--clr: #04fc43;">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00</div>
+        </div>
+        <div class="ap">
+            <div id="ampm">AM</div>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script>
+        let hours = document.getElementById('hours');
+        let minutes = document.getElementById('minutes');
+        let seconds = document.getElementById('seconds');
+        let ampm = document.getElementById('ampm');
+
+        let h = new Date().getHours();
+        let m = new Date().getMinutes();
+        let s = new Date().getSeconds();
+        let am = h >= 12 ? 'PM' : 'AM';
+        
+
+        // convert to 12 hour format
+        if(h > 12) {
+            h = h - 12;
+        }
+        // add zero in front of numbers < 10
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+
+        // update the time
+        setInterval(() => {
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+            ampm.innerHTML = am;
+
+            // update the time
+            h = new Date().getHours();
+            m = new Date().getMinutes();
+            s = new Date().getSeconds();
+            am = h >= 12 ? 'PM' : 'AM';
+
+            // convert to 12 hour format
+            if(h > 12) {
+                h = h - 12;
+            }
+            // add zero in front of numbers < 10
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+        }, 1000);
+
+        hours.innerHTML = h;
+        minutes.innerHTML = m;
+        seconds.innerHTML = s;
+        ampm.innerHTML = am;
+
+
+        //let svg
+        let hh = document.getElementById('hh');
+        let mm = document.getElementById('mm');
+        let ss = document.getElementById('ss');
+
+        // set the clock
+        setInterval(() => {
+            hh.style.strokeDashoffset = 440 - (440 * h) / 12;
+            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+            ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+            
+        }, 1000);
+
+    </script>
+</body>
+</html>
